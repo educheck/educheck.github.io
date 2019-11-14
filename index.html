@@ -156,7 +156,7 @@
     <script> // js-cookie
         document.getElementById("userconfirm").onclick = function() {
             var name = document.getElementById('userinput').textContent
-            Cookies.set('username', name);
+            Cookies.set('username', name, { expires: 999999999 });
         }
     </script>
 </body>
