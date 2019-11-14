@@ -68,7 +68,7 @@
         <div id="useronclick">
             <h1>Client Information&nbsp;&nbsp;&nbsp;&nbsp;</h1>
             <abbr title="Close"><img class="close" id="userclose" src="https://previews.dropbox.com/p/thumb/AAnSH6d2O7f60KchfJOsU4URiYZctyMSOxl5ox0pDwFgmG3xpH4tH8z58GYXRhherKqG9JLOOB2Y8WZ6IvB5AFB_vIWNH0eEO1FMbjBjSmBWQir4wgDy8XUOJiQNgLH5Ia5IWehzziaWOj3Oj2pJNxU2HUlwrY4O6DkKZT-2UBEI7VD38GcQYXEI04ldugkMzajuU_A4lpxL-avfHMK-zkILcgQPHNMben-EdXN5gCYUCwJRn00fXNLnjoUA5mobd936eX4log35AyW7jQKbJX0XHegdZ3-4YWaVeK4RxoZKxwC8M9IWpSKpJjkl9uFpsBxzEntJ-ub0qfcri0qYmQrP_DfpzB7S0ZoNI4ktTnwV3w/p.png?fv_content=true&size_mode=5"></abbr>
-            <h3>UserName: <input id="userinput"> <button id="userconfirm">Confirm</button></h3>
+            <h3>UserName: <form id="userform"><input id="userinput" name="user"> <button id="userconfirm">Confirm</button></form></h3>
             <p id="ip">IP Add. : </p>
             <p id="browser">UserAgent Info : </p>
             <p id="loc">URL Info : </p>
@@ -155,8 +155,8 @@
     </script>
     <script> // js-cookie
         document.getElementById("userconfirm").onclick = function() {
-            var name = document.getElementById('userinput').textContent
-            Cookies.set('username', name, { expires: 7300 });
+            var name = document.getElementById('userform').user.value;
+            Cookies.set('username', name, { expires: 7305 })
         }
     </script>
 </body>
