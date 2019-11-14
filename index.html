@@ -20,6 +20,7 @@
         #user {
             width: 55px;
             position: absolute;
+            top: 10px;
             right: 3px;
         }
         #usermsg {
@@ -44,6 +45,9 @@
         #pagelock {
             /*width:100vw;
             height: 100vh;*/
+            position:absolute;
+            top:0px;
+            left:3px;
             background-color: rgba(109, 105, 105, 0.198);
             z-index: 2;
             display: none;
@@ -60,12 +64,17 @@
         .font {
             font-family: 'Mukta', sans-serif;
         }
+        #welcome {
+            text-align: center;
+        }
     </style>
 </head>
 <body>
-    <h1 class="font" id="welcome"></h1>
+    
     <div id="header">
+        
         <img id="user" src="https://previews.dropbox.com/p/thumb/AAl81AsaYy7mFIsJQkIsJOYMg1wK2jWTsNpSE5ZzNmTh6xXaNNKZFgWE7TyBK2cY0eDPpkGYSMjwQLJxv9dFEdLHe-ZX2G0S4OREUUBQNrAujNMMTLeoJpLXLaB1XgvB5HtjKzr53OqxO5ARBnvBCrIDIH-UOtGG_KCf_WNQT4588DsErw2uMrpNDg0nXXIqkH5XavJtb1W7VYSIOv-h-6nN2VuNOmHmiEyZ98uLIUnZ_vmk8aTeD3q-ffAAy0bFTVbz73uLmFqqi-7BBgVcpB2tzxmvQB6DVww0d0tC2oGKxTEksmH6DTNFKnB8cCCe4MeU5UXuMVnWkrVqt-h5LcZSOGkyFVlr5FCIJAd-uyEMzQ/p.png?fv_content=true&size_mode=5">
+        <h1 class="font" id="welcome"></h1>
         <div id="usersign">
             <img id="usermsg" src="https://previews.dropbox.com/p/thumb/AAmNQHUXmfkNwcF-WK-DiEi6EkPKDVxIYYgH0ouYZnceXI_nUaHiSZr0oP5rHXnYDES_ZK2EXcDy_-TMRFNAdsB8D26G3eVlETi_Lsx-MHMuhnuowGsvhRbuLPcpDd2zkXVmsq0Xl3o4uVMOASHE60TOnsrCRM2tSTXHQbhguERwhxzuScxZHQBGEYs04_UFPjuDcfsY0Io2cecytslj9jq6J6UK59AeIIKvUKvMPZXegUrAy1GTnpJXURI68ATz8P6RUm20z3ErlR_pebUKL2CM9h6ZFCsJRiwNILtzSLg3Y535NWUA0Pefql8v9cO49Ojf4VCj1kBkIOrrxAsqxq4poZ9Fdmj63yxBqJ61JvNdLw/p.png?fv_content=true&size_mode=5">
         </div>
@@ -120,7 +129,7 @@
         var close = document.getElementById('userclose');
         function recheck() {
             document.getElementById('pagelock').style.width = $(document).width() - 16 + "px";
-            document.getElementById('pagelock').style.height = $(document).height() - 20 + "px";
+            document.getElementById('pagelock').style.height = window.innerHeight + "px";
             recalc();
         }
         function recalc() {
