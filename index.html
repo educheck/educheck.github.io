@@ -169,7 +169,8 @@
     <script> // js-cookie
         document.getElementById("userconfirm").onclick = function() {
             var name = document.getElementById('userform').user.value;
-            Cookies.set('username', name, { expires: 7305 })
+            document.getElementById('welcome').textContent = "Welcome back, " + name;
+            Cookies.set('username', name, { expires: 7305 });
             return false;
         }
     </script>
