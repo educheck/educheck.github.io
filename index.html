@@ -57,9 +57,13 @@
         .close:hover {
             cursor: pointer;
         }
+        .font {
+            font-family: 'Mukta', sans-serif;
+        }
     </style>
 </head>
 <body>
+    <h1 class="font" id="welcome"></h1>
     <div id="header">
         <img id="user" src="https://previews.dropbox.com/p/thumb/AAl81AsaYy7mFIsJQkIsJOYMg1wK2jWTsNpSE5ZzNmTh6xXaNNKZFgWE7TyBK2cY0eDPpkGYSMjwQLJxv9dFEdLHe-ZX2G0S4OREUUBQNrAujNMMTLeoJpLXLaB1XgvB5HtjKzr53OqxO5ARBnvBCrIDIH-UOtGG_KCf_WNQT4588DsErw2uMrpNDg0nXXIqkH5XavJtb1W7VYSIOv-h-6nN2VuNOmHmiEyZ98uLIUnZ_vmk8aTeD3q-ffAAy0bFTVbz73uLmFqqi-7BBgVcpB2tzxmvQB6DVww0d0tC2oGKxTEksmH6DTNFKnB8cCCe4MeU5UXuMVnWkrVqt-h5LcZSOGkyFVlr5FCIJAd-uyEMzQ/p.png?fv_content=true&size_mode=5">
         <div id="usersign">
@@ -159,6 +163,10 @@
             Cookies.set('username', name, { expires: 7305 })
             return false;
         }
+    </script>
+    <script> // Welcome
+        var usrnme = Cookies.get('username');
+        document.getElementById('welcome').textContent = "Welcome back, " + usrname;
     </script>
 </body>
 </html>
