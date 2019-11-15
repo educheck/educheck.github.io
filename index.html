@@ -22,7 +22,7 @@
             position: absolute;
             top: 10px;
             right: 3px;
-            z-index: 9;
+            z-index: 3;
         }
         #usermsg {
             width: 200px;
@@ -173,6 +173,15 @@
         document.getElementById('clientinfotext').style.overflow = "auto";
     </script>
     <script> // js-cookie
+        //textbox preset start
+        var placeholder;
+        if (Cookies.get('username') !== "undefined") {
+            placeholder = Cookies.get('username');
+        }
+        else {
+            placeholder = "Your Name Here!";
+        }
+        document.getElementById('userinput').style.placeholder = placeholder;
         document.getElementById("userconfirm").onclick = function() {
             var name = document.getElementById('userform').user.value;
             document.getElementById('welcome').textContent = "Welcome back, " + name;
