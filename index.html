@@ -238,7 +238,7 @@
     </script>
     <script>
         document.getElementById('selec').onchange = function() {
-            var selected = document.getElementById('ageselect').select.value;
+            var selected = document.getElementById('selec').value;
             Cookies.set('age', selected, {expires: 7300});
             return false;
         }
