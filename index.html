@@ -13,6 +13,7 @@
             position: absolute;
             bottom: 5px;
             right: 3px;
+            z-index: 3;
         }
         #confighoverimg {
             width: 200px;
@@ -32,7 +33,7 @@
             top: 20px;
             right: 64px;
         }
-        #useronclick {
+        .useronclick {
             width: 80vw;
             height: 70vh;
             background-color: rgb(24, 221, 211);
@@ -44,12 +45,13 @@
             text-align: center;
             font-family: 'Mukta', sans-serif;
         }
-        #pagelock {
+        .pagelock {
             /*width:100vw;
             height: 100vh;*/
-            position:absolute;
-            top:0px;
-            left:3px;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
             background-color: rgba(109, 105, 105, 0.198);
             z-index: 2;
             display: none;
@@ -80,10 +82,9 @@
         <div id="usersign">
             <img id="usermsg" src="/user-msg.png">
         </div>
-        <div id="useronclick">
+        <div id="useronclick" class="useronclick">
             <h1>Client Information&nbsp;&nbsp;&nbsp;&nbsp;</h1>
             <abbr title="Close"><img class="close" id="userclose" src="/close.png"></abbr>
-            <h3>UserName: <form id="userform"><input id="userinput" name="user"> <button id="userconfirm">Confirm</button></form></h3>
             <div id="clientinfotext">
                 <p id="ip">IP Add. : </p>
                 <p id="browser">UserAgent Info : </p>
@@ -93,13 +94,26 @@
                 <p id="engine">Browser Engine : </p>
             </div>
         </div>
-        <div id="pagelock"></div>
+        <div id="pagelock" class="pagelock"></div>
     </div>
     <div id="footer">
         <!-- Thanks to Iconfinder!! -->
         <img id="config" src="/config.png">
         <div id="sign">
             <img id="confighoverimg" src="/config-msg.png">
+        </div>
+        <div id="configclick" class="useronclick">
+            <h1>Configure Settings&nbsp;&nbsp;&nbsp;&nbsp;</h1>
+            <abbr title="Close"><img class="close" id="configclose" src="/close.png"></abbr>
+            <h3>UserName: <form id="userform"><input id="userinput" name="user"> <button id="userconfirm">Confirm</button></form></h3>
+            <h3>Age: 
+                <form id="ageselect">
+                    <select name="age">
+                        <option value="5">5-6</option>
+                        <option value="6">6-7</option>
+                    </select>
+                </form>
+            </h3>
         </div>
     </div>
     <script src="https://code.jquery.com/jquery-3.4.1.js"></script> <!-- jQuery -->
@@ -130,7 +144,9 @@
         user.addEventListener("mouseover", userhover);
         user.addEventListener("mouseout", userhoverout);
         var useropened = false;
+        var configopened = false;
         var close = document.getElementById('userclose');
+        var close2 = document.getElementById('configclose');
         function recheck() {
             document.getElementById('pagelock').style.width = $(document).width() - 16 + "px";
             document.getElementById('pagelock').style.height = window.innerHeight + "px";
@@ -144,18 +160,43 @@
                 document.getElementById('useronclick').style.display = "block";
                 document.getElementById('pagelock').style.display = "block";
                 useropened = true;
+                config.style.zIndex = "1";
                 recheck();
+                
             }
             else {
                 document.getElementById('useronclick').style.display = "none";
                 document.getElementById('pagelock').style.display = "none";
                 useropened = false;
+                config.style.zIndex = "3";
+            }
+        }
+        config.onclick = function() {
+            if (configopened == false) {
+                document.getElementById('configclick').style.display = "block";
+                document.getElementById('pagelock').style.display = "block";
+                configopened = true;
+                user.style.zIndex = "1";
+                recheck();
+            }
+            else {
+                document.getElementById('configclick').style.display = "none";
+                document.getElementById('pagelock').style.display = "none";
+                configopened = false;
+                user.style.zIndex = "3";
             }
         }
         close.onclick = function() {
             document.getElementById('useronclick').style.display = "none";
             document.getElementById('pagelock').style.display = "none";
             useropened = false;
+            config.style.zIndex = "1";   
+        }
+        close2.onclick = function() {
+            document.getElementById('configclick').style.display = "none";
+            document.getElementById('pagelock').style.display = "none";
+            configopened = false;
+            user.style.zIndex = "3";
         }
     </script>
     <script> // Thanks to ip.pe.kr!!!
@@ -170,7 +211,7 @@
         $("#appname").html("Application Name : " + window.navigator.appName);
         $("#engine").html("Browser Engine : " + window.navigator.product);
         document.getElementById('clientinfotext').style.width = "80vw";
-        document.getElementById('clientinfotext').style.height = "35vh";
+        document.getElementById('clientinfotext').style.height = "53vh";
         document.getElementById('clientinfotext').style.overflow = "auto";
     </script>
     <script> // js-cookie
@@ -187,13 +228,20 @@
         document.getElementById("userconfirm").onclick = function() {
             var name = document.getElementById('userform').user.value;
             document.getElementById('welcome').textContent = "Welcome back, " + name;
-            Cookies.set('username', name, { expires: 7305 });
+            Cookies.set('username', name, {expires: 7300});
             return false;
         }
     </script>
     <script> // Welcome
         var usrnme = Cookies.get('username');
         document.getElementById('welcome').textContent = "Welcome back, " + usrnme;
+    </script>
+    <script>
+        document.getElementById('ageselect').select.onchange = function() {
+            var selected = document.getElementById('ageselect').select.value;
+            Cookies.set('age', selected, {expires: 7300});
+            return false;
+        }
     </script>
 </body>
 </html>
