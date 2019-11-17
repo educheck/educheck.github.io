@@ -108,7 +108,7 @@
             <h3>UserName: <form id="userform"><input id="userinput" name="user"> <button id="userconfirm">Confirm</button></form></h3>
             <h3>Age: 
                 <form id="ageselect">
-                    <select name="age">
+                    <select name="age" id="selec">
                         <option value="5">5-6</option>
                         <option value="6">6-7</option>
                     </select>
@@ -237,7 +237,7 @@
         document.getElementById('welcome').textContent = "Welcome back, " + usrnme;
     </script>
     <script>
-        document.getElementById('ageselect').select.onchange = function() {
+        document.getElementById('selec').onchange = function() {
             var selected = document.getElementById('ageselect').select.value;
             Cookies.set('age', selected, {expires: 7300});
             return false;
