@@ -109,6 +109,7 @@
             <h3>Age: 
                 <form id="ageselect">
                     <select name="age" id="selec">
+                        <option value="unselected">Your Age</option>
                         <option value="5">5-6</option>
                         <option value="6">6-7</option>
                     </select>
@@ -239,7 +240,9 @@
     <script>
         document.getElementById('selec').onchange = function() {
             var selected = document.getElementById('selec').value;
-            Cookies.set('age', selected, {expires: 7300});
+            if (selected != "unselected") {
+                Cookies.set('age', selected, {expires: 7300});
+            }
             return false;
         }
     </script>
