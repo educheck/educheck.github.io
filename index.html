@@ -71,6 +71,9 @@
         #welcome {
             text-align: center;
         }
+        #firsttime {
+            background: white;
+        }
     </style>
 </head>
 <body>
@@ -95,6 +98,22 @@
             </div>
         </div>
         <div id="pagelock" class="pagelock"></div>
+    </div>
+    <div id="firsttime" class="font">
+        <h2>Language</h2>
+        <form id="langform"><select name="lang" id="langcheck"><p>Korean: </p><option value="ko"><br><p>English: </p><option value="en"></select></form>
+        <br>
+        <h2>UserName<form id="formuser"><input id="firstname" name="user"></form></h2>
+        <h2>Age: 
+            <form>
+                  <select name="age" id="selectage">
+                    <option value="unselected">Your Age</option>
+                    <option value="5">5-6</option>
+                    <option value="6">6-7</option>
+                  </select>
+            </form>
+        </h2>
+        <h4>I agree to the Terms of Use and the Privacy Policy</h4>
     </div>
     <div id="footer">
         <!-- Thanks to Iconfinder!! -->
@@ -214,6 +233,8 @@
         document.getElementById('clientinfotext').style.width = "80vw";
         document.getElementById('clientinfotext').style.height = "53vh";
         document.getElementById('clientinfotext').style.overflow = "auto";
+        $("#firsttime").style.width = window.innerWidth + "px";
+        $("#firsttime").style.height = window.innerHeight + "px";
     </script>
     <script> // js-cookie
         //textbox preset start
@@ -244,6 +265,14 @@
                 Cookies.set('age', selected, {expires: 7300});
             }
             return false;
+        }
+    </script>
+    <script>
+        if (Cookies.get('visitedbefore') == 'yes') {
+            // put nothing here
+        }
+        else {
+
         }
     </script>
 </body>
