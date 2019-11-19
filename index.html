@@ -331,6 +331,7 @@
     <script>
         if (Cookies.get('visitedbefore') == 'yes') {
             Cookies.set('visitedbefore', 'yes', {expires: 7300});
+            document.getElementById('firsttime').style.display = "none";
         }
         else {
             document.getElementById('firsttime').style.display = "block";
