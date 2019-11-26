@@ -337,10 +337,12 @@
             document.getElementById('firsttime').style.display = "block";
         }
         document.getElementById('startbutton').onclick = function() {
+            var formuserstr = document.getElementById('formuser').user.value.toString()
+
             if (document.getElementById('termsagree').checked && document.getElementById('cookieagree').checked) {
                 if (document.getElementById('langcheck').value != 'x') {
-                    if (/\s/.test(document.getElementById('formuser').user.value)) {
-                        window.alert('Usernames cannot contain spaces, tabspaces, lines. Please recheck your UserName.')
+                    if (/\s/.test(document.getElementById('formuser').user.value) &&/* mark pls formuserstr.length < 4*/) {
+                        window.alert('Usernames cannot contain spaces, tabspaces, lines. And has to have more than 4 characters. Please recheck your UserName.')
                     }
                     else {
                         if (document.getElementById('selectage').value != 'unselected') {
