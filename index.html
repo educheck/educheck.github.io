@@ -178,6 +178,11 @@
         <form><input type="checkbox" id="termsagree" name="tos"><label for="agree">&nbsp;I agree to the <a href="https://www.privacypolicies.com/terms/view/ab18e81a7a1a46eac0241290312bce6c">Terms and Conditions</a> and the <a href="https://www.privacypolicies.com/privacy/view/f3795e86c8e00d25e60d8f4a94cae792">Privacy Policy</a></label><br><input type="checkbox" name="cp" id="cookieagree"><label for="cp"> I agree of EduCheck using <a href="https://www.privacypolicies.com/agreement/view/28850a75fd646ff98f343c99a1828b7e">Cookies</a> and acknowledged the <a href="https://www.privacypolicies.com/agreement/view/ebfd6aec6d6cba24b299a6c833a1320b">Disclaimer</a></label></form>
         <div class="startbutton" style="vertical-align:middle" id="startbutton"><span>Start </span></div>
     </div>
+    <!-- Main -->
+        <div id="number">
+            <img id="numberimg">
+        </div>
+    <!-- Main End -->
     <div id="footer">
         <!-- Thanks to Iconfinder!! -->
         <img id="config" src="/config.png">
@@ -349,6 +354,7 @@
                             Cookies.set('visitedbefore', 'yes', {expires: 7300});
                             Cookies.set('username', document.getElementById('formuser').user.value, {expires: 7300});
                             Cookies.set('age', document.getElementById('selectage').value, {expires: 7300});
+                            Cookies.set('lang', document.getElementById('langform').value, {expires: 7300});
                             document.getElementById('firsttime').style.display = "none";
                         }
                         else {
@@ -363,6 +369,11 @@
             else {
                 window.alert('Please make sure you have checked all the checkboxes(agreements).');
             }
+        }
+    </script>
+    <script>
+        var langimg = document.getElementById('numberimg');
+        function showimgperlang() {
         }
     </script>
 </body>
