@@ -8,6 +8,7 @@
     <link rel="icon" href="/educheck.ico">
     <title>EduCheck</title>
     <style> /* CSS */
+    @font-face { font-family: 'CookierunB'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_twelve@1.0/CookieRunOTF-Bold00.woff') format('woff'); font-weight: normal; font-style: normal; } /* CookieRun Bold */
         #config {
             width: 65px;
             position: absolute;
@@ -66,7 +67,7 @@
             cursor: pointer;
         }
         .font {
-            font-family: 'Mukta', sans-serif;
+            font-family: 'Mukta', 'CookierunB', sans-serif;
         }
         #welcome {
             text-align: center;
@@ -291,7 +292,7 @@
         $.ajax({
             url: "https://api.ip.pe.kr/"
         }).done(function(data) {
-                $("#ip").html("IP 주소 " + data);
+                $("#ip").html("IP 주소 :" + data);
         });
         document.getElementById('browser').textContent = "UserAgent 정보 : " + window.navigator.userAgent;
         document.getElementById('loc').textContent = "URL 정보 : " + location.href;
