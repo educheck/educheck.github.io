@@ -165,7 +165,7 @@
         <h4>언어/Language</h4>
         <form id="langform"><select name="lang" id="langcheck"><option value="x"></option><option value="ko">한국어</option><option value="en">English</option></select></form>
         <br>
-        <h4>별명<form id="formuser"><input id="firstname" name="user"></form></h4>
+        <h4>사용자 이름<form id="formuser"><input id="firstname" name="user"></form></h4>
         <h4>나이
             <form>
                   <select name="age" id="selectage">
@@ -176,7 +176,7 @@
             </form>
         </h4>
         <form><input type="checkbox" id="termsagree" name="tos"><label for="agree">&nbsp;저는 <a href="https://www.privacypolicies.com/terms/view/ab18e81a7a1a46eac0241290312bce6c">이용 약관</a>, <a href="https://www.privacypolicies.com/privacy/view/f3795e86c8e00d25e60d8f4a94cae792">개인정보 취급방침</a>에 동의합니다.</label><br><input type="checkbox" name="cp" id="cookieagree"><label for="cp"> 저는 EduCheck이 <a href="https://www.privacypolicies.com/agreement/view/28850a75fd646ff98f343c99a1828b7e">쿠키를 사용하는 것과</a> <a href="https://www.privacypolicies.com/agreement/view/ebfd6aec6d6cba24b299a6c833a1320b">이 사이트를 이용하는 도중 생기는 위험</a>을 감수합니다.</label></form>
-        <div class="startbutton" style="vertical-align:middle" id="startbutton"><span>Start </span></div>
+        <div class="startbutton" style="vertical-align:middle" id="startbutton"><span>시작 </span></div>
     </div>
     <!-- Main -->
         <div id="number">
@@ -190,15 +190,15 @@
             <img id="confighoverimg" src="/config-msg.png">
         </div>
         <div id="configclick" class="useronclick">
-            <h1>Configure Settings&nbsp;&nbsp;&nbsp;&nbsp;</h1>
+            <h1>설정&nbsp;&nbsp;&nbsp;&nbsp;</h1>
             <abbr title="Close"><img class="close" id="configclose" src="/close.png"></abbr>
-            <h3>UserName: <form id="userform"><input id="userinput" name="user"> <button id="userconfirm">Confirm</button></form></h3>
-            <h3>Age: 
+            <h3>사용자 이름: <form id="userform"><input id="userinput" name="user"> <button id="userconfirm">Confirm</button></form></h3>
+            <h3>나이: 
                 <form id="ageselect">
                     <select name="age" id="selec">
-                        <option value="unselected">Your Age</option>
-                        <option value="5">5-6</option>
-                        <option value="6">6-7</option>
+                        <option value="unselected">입력</option>
+                        <option value="5">5-6세</option>
+                        <option value="6">6-7세</option>
                     </select>
                 </form>
             </h3>
@@ -291,38 +291,38 @@
         $.ajax({
             url: "https://api.ip.pe.kr/"
         }).done(function(data) {
-                $("#ip").html("IP Add. " + data);
+                $("#ip").html("IP 주소 " + data);
         });
-        document.getElementById('browser').textContent = "UserAgent Info : " + window.navigator.userAgent;
-        document.getElementById('loc').textContent = "URL Info : " + location.href;
-        document.getElementById('lang').textContent = "Language Code : " + window.navigator.language;
-        $("#appname").html("Application Name : " + window.navigator.appName);
-        $("#engine").html("Browser Engine : " + window.navigator.product);
+        document.getElementById('browser').textContent = "UserAgent 정보 : " + window.navigator.userAgent;
+        document.getElementById('loc').textContent = "URL 정보 : " + location.href;
+        document.getElementById('lang').textContent = "국가 코드 : " + window.navigator.language;
+        $("#appname").html("앱 패키지 이름 : " + window.navigator.appName);
+        $("#engine").html("브라우저 엔진 : " + window.navigator.product);
         document.getElementById('clientinfotext').style.width = "80vw";
         document.getElementById('clientinfotext').style.height = "53vh";
         document.getElementById('clientinfotext').style.overflow = "auto";
     </script>
     <script> // js-cookie
         //textbox preset start
-        var placeholder;
+        var aplaceholder;
         if (Cookies.get('username') !== "undefined") {
-            placeholder = Cookies.get('username');
+            aplaceholder = Cookies.get('username');
         }
         else {
-            placeholder = "Your Name Here!";
+            aplaceholder = "이름을 입력하세요.";
         }
-        document.getElementById('userinput').style.placeholder = placeholder;
+        document.getElementById('userinput').style.placeholder = aplaceholder;
         //textbox preset end
         document.getElementById("userconfirm").onclick = function() {
             var name = document.getElementById('userform').user.value;
-            document.getElementById('welcome').textContent = "Welcome back, " + name;
+            document.getElementById('welcome').textContent = name + "님, 반갑습니다!";
             Cookies.set('username', name, {expires: 7300});
             return false;
         }
     </script>
     <script> // Welcome
         var usrnme = Cookies.get('username');
-        document.getElementById('welcome').textContent = "Welcome back, " + usrnme;
+        document.getElementById('welcome').textContent = usrnme + "님, 반갑습니다!";
     </script>
     <script>
         document.getElementById('selec').onchange = function() {
@@ -347,7 +347,7 @@
             if (document.getElementById('termsagree').checked && document.getElementById('cookieagree').checked) {
                 if (document.getElementById('langcheck').value != 'x') {
                     if (/\s/.test(document.getElementById('formuser').user.value)) {
-                        window.alert('Usernames cannot contain spaces, tabspaces, lines. And has to have more than 4 characters. Please recheck your UserName.')
+                        window.alert('사용자 이름은 공백, Tab 스페이스, Enter ↳을 포함해서는 안 됩니다. 또한 4글자 이상이어야 합니다.')
                     }
                     else {
                         if (document.getElementById('selectage').value != 'unselected') {
@@ -358,16 +358,16 @@
                             document.getElementById('firsttime').style.display = "none";
                         }
                         else {
-                            window.alert('Please select a valid age.')
+                            window.alert('올바른 나이를 입력하세요.')
                         }
                     }
                 }
                 else {
-                    window.alert('Please select a valid language.');
+                    window.alert('올바른 언어를 입력하세요.');
                 }
             }
             else {
-                window.alert('Please make sure you have checked all the checkboxes(agreements).');
+                window.alert('모든 체크박스에 체크했는지 확인해 주세요.');
             }
         }
     </script>
