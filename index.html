@@ -357,7 +357,7 @@
                     }
                     else {
                         if (document.getElementById('selectage').value != 'unselected') {
-                            if( document.getElementById('langform').value == "en") {console.log("TRUE"); location.href = 'https://educheck.github.io/en';}
+                            if( document.getElementById('langcheck').value == "en") {location.href = 'https://educheck.github.io/en';}
                             Cookies.set('visitedbefore', 'yes', {expires: 7300});
                             Cookies.set('username', document.getElementById('formuser').user.value, {expires: 7300});
                             document.getElementById('welcome').textContent = document.getElementById('formuser').user.value;
