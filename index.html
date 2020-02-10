@@ -297,7 +297,7 @@
         $.ajax({
             url: "https://api.ip.pe.kr/"
         }).done(function(data) {
-                $("#ip").html("IP 주소 :" + data);
+                $("#ip").html("IP 주소 : " + data);
         });
         document.getElementById('browser').textContent = "UserAgent 정보 : " + window.navigator.userAgent;
         document.getElementById('loc').textContent = "URL 정보 : " + location.href;
