@@ -8,7 +8,8 @@
     <link rel="icon" href="/educheck.ico">
     <title>EduCheck</title>
     <style> /* CSS */
-    @font-face { font-family: 'CookierunB'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_twelve@1.0/CookieRunOTF-Bold00.woff') format('woff'); font-weight: normal; font-style: normal; } /* CookieRun Bold */
+        @font-face { font-family: 'CookierunB'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_twelve@1.0/CookieRunOTF-Bold00.woff') format('woff'); font-weight: normal; font-style: normal; } /* CookieRun Bold */
+        @font-face { font-family: 'CookierunL'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/CookieRun-Regular.woff') format('woff'); font-weight: normal; font-style: normal; } /* CookieRUn Regular */
         #config {
             width: 65px;
             position: absolute;
@@ -44,7 +45,6 @@
             display: none;
             z-index: 3;
             text-align: center;
-            font-family: 'Mukta', sans-serif;
         }
         .pagelock {
             /*width:100vw;
@@ -133,7 +133,9 @@
               background-color: rgba(204, 248, 187, 0.76);
               transition: 0.5s;
           }
-          
+          .light {
+              font-family: 'CookierunL';
+          }
     </style>
 </head>
 <body>
@@ -145,7 +147,7 @@
         <div id="usersign">
             <img id="usermsg" src="/user-msg.png">
         </div>
-        <div id="useronclick" class="useronclick">
+        <div id="useronclick" class="useronclick light">
             <h1>클라이언트 정보&nbsp;&nbsp;&nbsp;&nbsp;</h1>
             <abbr title="Close"><img class="close" id="userclose" src="/close.png"></abbr>
             <div id="clientinfotext">
