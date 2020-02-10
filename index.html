@@ -341,14 +341,19 @@
 
             if (document.getElementById('termsagree').checked && document.getElementById('cookieagree').checked) {
                 if (document.getElementById('langcheck').value != 'x') {
-                    if (document.getElementById('selectage').value != 'unselected') {
-                        Cookies.set('visitedbefore', 'yes', {expires: 7300});
-                        Cookies.set('username', document.getElementById('formuser').user.value, {expires: 7300});
-                        Cookies.set('age', document.getElementById('selectage').value, {expires: 7300});
-                        document.getElementById('firsttime').style.display = "none";
+                    if (/\s/.test(document.getElementById('formuser').user.value)) {
+                        window.alert('Usernames cannot contain spaces, tabspaces, lines. And has to have more than 4 characters. Please recheck your UserName.')
                     }
                     else {
-                        window.alert('Please select a valid age.')
+                        if (document.getElementById('selectage').value != 'unselected') {
+                            Cookies.set('visitedbefore', 'yes', {expires: 7300});
+                            Cookies.set('username', document.getElementById('formuser').user.value, {expires: 7300});
+                            Cookies.set('age', document.getElementById('selectage').value, {expires: 7300});
+                            document.getElementById('firsttime').style.display = "none";
+                        }
+                        else {
+                            window.alert('Please select a valid age.')
+                        }
                     }
                 }
                 else {
