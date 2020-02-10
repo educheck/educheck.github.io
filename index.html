@@ -186,7 +186,7 @@
     </div>
     <!-- Main -->
         <div id="number">
-            <img id="numberimg">
+            <img id="numberimg" src="/numberkr.png">
         </div>
     <!-- Main End -->
     <div id="footer">
@@ -380,7 +380,9 @@
     </script>
     <script>
         var langimg = document.getElementById('numberimg');
-        langimg.src = "/numberkr.png"
+        langimg.onclick = function() {
+            location.href = "https://educheck.github.io/course-number";
+        }
     </script>
 </body>
 </html>
