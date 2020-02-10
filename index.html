@@ -136,6 +136,9 @@
           .light {
               font-family: 'CookierunL';
           }
+          body {
+              background-color: white;
+          }
     </style>
 </head>
 <body>
@@ -357,7 +360,7 @@
                             Cookies.set('visitedbefore', 'yes', {expires: 7300});
                             Cookies.set('username', document.getElementById('formuser').user.value, {expires: 7300});
                             Cookies.set('age', document.getElementById('selectage').value, {expires: 7300});
-                            Cookies.set('lang', document.getElementById('langform').value, {expires: 7300});
+                            if(document.getElementById('langform').value === "en") {location.href = 'https://educheck.github.io/en';}
                             document.getElementById('firsttime').style.display = "none";
                         }
                         else {
@@ -376,8 +379,7 @@
     </script>
     <script>
         var langimg = document.getElementById('numberimg');
-        function showimgperlang() {
-        }
+        langimg.src = "/numberkr.png"
     </script>
 </body>
 </html>
