@@ -189,6 +189,29 @@
         <div id="number">
             <img id="numberimg" src="/numberkr.png">
         </div>
+        <div id="helpuse">
+            <img id="help" src="/how2use.png" style="float: right;">
+            <div id="helppage" style="position: absolute; background-color: white; width: 100%; height: 100%; display: none;">
+                <h2>사용하는 방법</h2>
+                <p>EduCheck 서비스를 사용하는 방법입니다.</p><br><p>1) <a href="/">https://bit.ly/edu0919</a> 또는 <a href="/">https://educheck.github.io</a>에 접속을 합니다.</p>
+                <br>
+                <p>2) 사용하고자 하는 교육 카테고리를 클릭합니다. 예) 숫자</p>
+                <br>
+                <p>3) 배우고자 하는 학습 카테고리를 선택합니다. 예)가르기와 모으기</p>
+                <br>
+                <p>4) 서브 학습 카테고리를 선택합니다. 예)가르기</p>
+                <br>
+                <p>5) 단계를 선택합니다.</p>
+                <br>
+                <p>6) 단계에 따라 학습합니다.</p>
+                <br>
+                <br>
+                <button onclick="location.reload()">돌아가기</button>
+            </div>
+        </div>
+        <div id="datadiv">
+            <
+        </div>
     <!-- Main End -->
     <div id="footer">
         <!-- Thanks to Iconfinder!! -->
@@ -385,6 +408,11 @@
         langimg.onclick = function() {
             location.href = "https://educheck.github.io/course-number";
         }
+
+
+        $("#help").on("click", function() {
+            $("#helppage").css("display", "block");
+        });
     </script>
 </body>
 </html>
